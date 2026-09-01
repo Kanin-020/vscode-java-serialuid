@@ -1,0 +1,19 @@
+.vscode/**
+.vscode-test/**
+out/**
+node_modules/**
+src/**
+.gitignore
+.yarnrc
+.editorconfig
+.prettierrc
+.prettierignore
+.eslintrc.json
+webpack.config.js
+**/tsconfig.json
+**/*.map
+**/*.ts
+**/.vscode-test.*
+.github/**
+resources/preview.gif
+resources/serial uid.svg

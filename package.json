@@ -1,0 +1,90 @@
+{
+    "name": "vscode-java-serialuid",
+    "displayName": "Java SerialVersion UID Generator",
+    "version": "1.2.0",
+    "publisher": "kanin-020",
+    "author": {
+        "name": "Jesús Álvarez"
+    },
+    "description": "Java SerialVersion UID Generator for VS Code. Automatically generates serialVersionUID for classes, enums, interfaces, records, and annotation types.",
+    "categories": [
+        "Snippets"
+    ],
+    "icon": "resources/icon.webp",
+    "pricing": "Free",
+    "license": "Apache-2.0",
+    "engines": {
+        "vscode": "^1.96.0"
+    },
+    "activationEvents": [
+        "onLanguage:java"
+    ],
+    "keywords": [
+        "java",
+        "serial",
+        "serialUID",
+        "serialVersionUID",
+        "uid",
+        "UID",
+        "generator",
+        "serializable",
+        "vscode"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "menus": {
+            "editor/codeActions": [
+                {
+                    "command": "vscode-java-serialuid.generateSerialVersionUID",
+                    "title": "Generate SerialVersionUID",
+                    "when": "editorHasDocumentSymbolProvider && editorLangId == java",
+                    "group": "source"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "compile": "webpack",
+        "watch": "webpack --watch",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "lint": "eslint src --ext ts",
+        "lint:fix": "eslint src --ext ts --fix",
+        "format": "prettier --write \"src/**/*.ts\"",
+        "format:check": "prettier --check \"src/**/*.ts\"",
+        "pretest": "npm run compile-tests && npm run compile && npm run lint",
+        "test": "vscode-test",
+        "clean": "rimraf dist out *.vsix",
+        "compile:production": "npm run clean && webpack --mode production --devtool hidden-source-map",
+        "vscode:prepublish": "npm run compile:production",
+        "package": "npm run compile:production && vsce package",
+        "publish": "npm run compile:production && vsce publish"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.10",
+        "@types/node": "^20.19.43",
+        "@types/vscode": "^1.96.0",
+        "@typescript-eslint/eslint-plugin": "^8.69.0",
+        "@typescript-eslint/parser": "^8.69.0",
+        "@vscode/test-cli": "^0.0.15",
+        "@vscode/test-electron": "^2.4.0",
+        "@vscode/vsce": "^3.9.2",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.6",
+        "prettier": "^3.9.6",
+        "rimraf": "^5.0.10",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.4.5",
+        "webpack": "^5.92.1",
+        "webpack-cli": "^5.1.4"
+    },
+    "bugs": {
+        "url": "https://github.com/Kanin-020/vscode-java-serialuid"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Kanin-020/vscode-java-serialuid.git"
+    },
+    "homepage": "https://github.com/Kanin-020/vscode-java-serialuid/blob/main/README.md"
+}
