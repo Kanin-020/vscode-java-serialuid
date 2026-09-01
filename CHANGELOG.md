@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Changed
 
+- Initial commit: Java SerialVersion UID Generator for VS Code
+
+## [1.2.0] - 2026-09-01
+
+### Changed
+
 - Refactored monolithic `extension.ts` into modular architecture (hash, parser, position, codeActionProvider)
 - Replaced wildcard imports (`import *`) with specific named imports
 - Added Prettier, ESLint+Prettier integration, and EditorConfig
